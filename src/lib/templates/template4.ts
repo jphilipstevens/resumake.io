@@ -8,7 +8,7 @@ const generator: Generator = {
       return '\\namesection{Your}{Name}{}'
     }
 
-    const { name, email, phone, location = {}, website } = profile
+    const { name, email, phone, location = {}, url } = profile
 
     let nameStart = ''
     let nameEnd = ''
@@ -25,7 +25,7 @@ const generator: Generator = {
       }
     }
 
-    const info = [email, phone, location.address, website]
+    const info = [email, phone, location.address, url]
       .filter(Boolean)
       .join(' | ')
 

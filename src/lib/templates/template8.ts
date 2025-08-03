@@ -8,8 +8,8 @@ const generator: Generator = {
       return ''
     }
 
-    const { name, email, phone = '', location = {}, website } = basics
-    const websiteLine = website ? `\\href{${website}}{${website}}` : ''
+    const { name, email, phone = '', location = {}, url } = basics
+    const urlLine = url ? `\\href{${url}}{${url}}` : ''
 
     let addressLine = ''
     let contactsLine = ''
@@ -20,10 +20,10 @@ const generator: Generator = {
       addressLine = `\\address{${location.address || phone}}`
     }
 
-    if (email && website) {
-      contactsLine = `\\contacts{${email} \\linebreak ${websiteLine}}`
-    } else if (email || website) {
-      contactsLine = `\\contacts{${email || websiteLine}}`
+    if (email && url) {
+      contactsLine = `\\contacts{${email} \\linebreak ${urlLine}}`
+    } else if (email || url) {
+      contactsLine = `\\contacts{${email || urlLine}}`
     }
 
     return `

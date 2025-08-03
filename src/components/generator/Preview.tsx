@@ -4,6 +4,8 @@ import { pdfjs, Document, Page } from 'react-pdf'
 import type { PDFDocumentProxy } from 'pdfjs-dist/types/src/display/api'
 import styled from 'styled-components'
 import { resumeAtom } from '../../atoms/resume'
+import { toJsonResume } from '../../lib/jsonResume'
+import type { FormValues } from '../../types'
 
 const workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`
 pdfjs.GlobalWorkerOptions.workerSrc = workerSrc
@@ -45,9 +47,26 @@ export function Preview() {
     setPageCount(pdf.numPages)
   }, [])
 
+  const handleJsonExport = useCallback(() => {
+    const stored = window.localStorage.getItem('jsonResume')
+    if (!stored) return
+    const formValues = JSON.parse(stored) as FormValues
+    const jsonResume = toJsonResume(formValues)
+    const blob = new Blob([JSON.stringify(jsonResume, null, 2)], {
+      type: 'application/json'
+    })
+    const url = URL.createObjectURL(blob)
+    const link = document.createElement('a')
+    link.href = url
+    link.download = 'resume.json'
+    link.click()
+    URL.revokeObjectURL(url)
+  }, [])
+
   return (
     <Output>
       <button onClick={() => window.open(resume.url)}>export as pdf</button>
+      <button onClick={handleJsonExport}>export as json</button>
       <PdfContainer>
         <ResumeDocument
           file={resume.url || '/blank.pdf'}

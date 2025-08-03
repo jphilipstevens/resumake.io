@@ -8,12 +8,12 @@ const generator: Generator = {
       return ''
     }
 
-    const { name, email, phone, location, website } = basics
+    const { name, email, phone, location, url } = basics
     const address = location?.address || ''
-    const websiteLine = website ? `\\href{${website}}{${website}}` : ''
+    const urlLine = url ? `\\href{${url}}{${url}}` : ''
 
     let line1 = name ? `{\\Huge \\scshape {${name}}}` : ''
-    let line2 = [address, email, phone, websiteLine]
+    let line2 = [address, email, phone, urlLine]
       .filter(Boolean)
       .join(' $\\cdot$ ')
 

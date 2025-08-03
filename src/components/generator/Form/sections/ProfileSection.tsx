@@ -25,7 +25,7 @@ export function ProfileSection() {
         placeholder="Seattle, WA"
       />
       <LabeledInput
-        name="basics.website"
+        name="basics.url"
         label="Website"
         placeholder="mycoolportifolio.com/myname"
       />

@@ -4,7 +4,7 @@ import type { FormValues, Generator } from '../../types'
 
 const generator: Generator = {
   profileSection(basics = {}) {
-    const { name, email, phone, location = {}, website } = basics
+    const { name, email, phone, location = {}, url } = basics
 
     return stripIndent`
     % Profile
@@ -12,7 +12,7 @@ const generator: Generator = {
     \\address{${location.address || ''}}
     ${phone ? `\\phone[mobile]{${phone}}` : ''}
     ${email ? `\\email{${email || ''}}` : ''}
-    ${website ? `\\homepage{${website || ''}}` : ''}
+    ${url ? `\\homepage{${url || ''}}` : ''}
   `
   },
 
