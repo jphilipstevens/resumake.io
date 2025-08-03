@@ -14,7 +14,7 @@ export function WorkSection() {
 
   const handleAdd = () => {
     const defaultWork: Work = {
-      company: '',
+      name: '',
       position: '',
       summary: '',
       startDate: '',
@@ -40,7 +40,7 @@ export function WorkSection() {
       {fields.map((field, index) => (
         <Fragment key={field.id}>
           <LabeledInput
-            name={`work.${index}.company`}
+            name={`work.${index}.name`}
             label="Company name"
             placeholder="Netflix"
           />

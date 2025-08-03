@@ -16,16 +16,11 @@ export type Basics = {
   phone?: string
   location?: Location
   profiles?: Profile[] // TODO: revisit how profiles gets rendered
-
-  // non-standard attribute
-  website?: string
+  url?: string
 }
 
 export type Work = {
   name?: string
-  // non-standard attribute
-  company?: string
-
   position?: string
   startDate?: string
   endDate?: string

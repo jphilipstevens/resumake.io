@@ -10,7 +10,7 @@ import { EducationSection } from './sections/EducationSection'
 import { WorkSection } from './sections/WorkSection'
 import { SkillsSection } from './sections/SkillsSection'
 import { AwardSection } from './sections/AwardsSection'
-import { ProjectsSection } from './sections/projectsSection'
+import { ProjectsSection } from './sections/ProjectsSection'
 import { resumeAtom } from '../../../atoms/resume'
 import { FormValues } from '../../../types'
 

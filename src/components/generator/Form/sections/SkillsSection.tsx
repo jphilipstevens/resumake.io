@@ -15,6 +15,7 @@ export function SkillsSection() {
   const handleAdd = () => {
     const defaultSkill: Skill = {
       name: '',
+      level: '',
       keywords: []
     }
 
@@ -39,6 +40,11 @@ export function SkillsSection() {
             name={`skills.${index}.name`}
             label="Skill name"
             placeholder="Programming Languages"
+          />
+          <LabeledInput
+            name={`skills.${index}.level`}
+            label="Proficiency Level"
+            placeholder="Expert"
           />
           <Keywords
             label="Skill Details"

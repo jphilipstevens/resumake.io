@@ -8,7 +8,7 @@ const generator: Generator = {
       return ''
     }
 
-    const { name, email, phone, location = {}, website } = basics
+    const { name, email, phone, location = {}, url } = basics
 
     let nameLine = ''
 
@@ -32,10 +32,10 @@ const generator: Generator = {
     const addressLine = location.address
       ? `{\\faMapMarker\\ ${location.address}}`
       : ''
-    const websiteLine = website
-      ? `{\\faLink\\ \\href{${website}}{${website}}}`
+    const urlLine = url
+      ? `{\\faLink\\ \\href{${url}}{${url}}}`
       : ''
-    const info = [emailLine, phoneLine, addressLine, websiteLine]
+    const info = [emailLine, phoneLine, addressLine, urlLine]
       .filter(Boolean)
       .join(' | ')
 

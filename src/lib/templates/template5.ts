@@ -8,10 +8,10 @@ const generator: Omit<Generator, 'resumeHeader'> = {
       return ''
     }
 
-    const { name, email, phone, location = {}, website } = basics
-    const websiteLine = website ? `\\href{${website}}{${website}}` : ''
+    const { name, email, phone, location = {}, url } = basics
+    const urlLine = url ? `\\href{${url}}{${url}}` : ''
 
-    const info = [email, phone, location.address, websiteLine]
+    const info = [email, phone, location.address, urlLine]
       .filter(Boolean)
       .join(' | ')
 
